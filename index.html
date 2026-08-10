@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Mogu Mogu Lychee - Refreshment You Can Chew</title>
+  
+  <!-- Tailwind CSS & Plugins -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#f472b6",
+            "background-light": "#fdf2f8",
+            "background-dark": "#1f2937",
+            "text-light": "#1f2937",
+            "text-dark": "#f3f4f6",
+          },
+          fontFamily: {
+            display: ["Poppins", "sans-serif"],
+            mogu: ["Fredoka", "sans-serif"],
+            handwritten: ["Patrick Hand", "cursive"],
+          },
+          borderRadius: {
+            DEFAULT: "1rem",
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Patrick+Hand&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!-- Custom Scroll Styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-display transition-colors duration-300">
+
+  <!-- Transparent Navigation Bar -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-white/20 dark:bg-gray-950/20 backdrop-blur-md border-b border-white/10 transition-all duration-300" id="main-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <div class="flex items-center">
+          <a class="font-mogu text-2xl font-bold text-[#1f2937] dark:text-white tracking-wider uppercase" href="#home">
+            Mogu Mogu
+          </a>
+        </div>
+        <div class="hidden sm:flex items-center space-x-8">
+          <a class="font-display text-[#1f2937] dark:text-gray-200 hover:text-[#db2777] transition-colors text-sm font-semibold" href="#home">Animation</a>
+          <a class="font-display text-[#1f2937] dark:text-gray-200 hover:text-[#db2777] transition-colors text-sm font-semibold" href="#flavor">Experience</a>
+          <a class="font-display text-[#1f2937] dark:text-gray-200 hover:text-[#db2777] transition-colors text-sm font-semibold" href="#pairing">Ingredients</a>
+          <a class="font-display text-[#1f2937] dark:text-gray-200 hover:text-[#db2777] transition-colors text-sm font-semibold" href="#stores">Find Us</a>
+          <a class="bg-primary hover:bg-pink-500 text-white px-6 py-2 rounded-full font-medium transition-all shadow-md shadow-pink-200 dark:shadow-none hover:scale-105" href="#stores">Buy Now</a>
+        </div>
+        <div class="flex items-center sm:hidden">
+          <button id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary focus:outline-none" type="button">
+            <span class="material-icons">menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="hidden sm:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 px-4 pt-2 pb-4 space-y-2">
+      <a class="block text-gray-900 dark:text-white hover:text-primary px-3 py-2 rounded-md text-base font-medium" href="#home">Animation</a>
+      <a class="block text-gray-900 dark:text-white hover:text-primary px-3 py-2 rounded-md text-base font-medium" href="#flavor">Experience</a>
+      <a class="block text-gray-900 dark:text-white hover:text-primary px-3 py-2 rounded-md text-base font-medium" href="#pairing">Ingredients</a>
+      <a class="block text-gray-900 dark:text-white hover:text-primary px-3 py-2 rounded-md text-base font-medium" href="#stores">Find Us</a>
+      <a class="block bg-primary text-white text-center px-6 py-2.5 rounded-full font-medium" href="#stores">Buy Now</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Scroll Animation Section -->
+    <section class="animation-section" id="home">
+      <div class="canvas-container">
+        <!-- Overlay Heading and Subheading -->
+        <div class="scroll-hero-text absolute top-28 md:top-36 left-1/2 -translate-x-1/2 text-center z-10 pointer-events-none w-full px-4 max-w-2xl">
+          <h1 class="font-mogu text-6xl md:text-8xl font-bold text-[#1f2937] tracking-wide uppercase drop-shadow-[0_2px_10px_rgba(255,255,255,0.4)]">
+            Mogu Mogu
+          </h1>
+          <p class="font-handwritten text-2xl md:text-4xl text-[#374151] mt-3 drop-shadow-[0_2px_10px_rgba(255,255,255,0.4)]">
+            Lychee Flavoured Drink with Nata de Coco
+          </p>
+        </div>
+
+        <canvas id="scroll-canvas"></canvas>
+      </div>
+    </section>
+
+    <!-- Mogu Mogu Content Sections -->
+    <section class="py-24 bg-white dark:bg-gray-900 transition-colors duration-300" id="flavor">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-base text-primary font-semibold tracking-wide uppercase">The Experience</h2>
+          <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+            Why just drink when you can chew?
+          </p>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 dark:text-gray-400 mx-auto">
+            Mogu Mogu is unique because of its generous chunks of Nata de Coco, delivering a delightful texture that makes drinking fun.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div class="text-center p-6 rounded-2xl bg-pink-50 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-pink-100 dark:border-gray-700">
+            <div class="w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center text-white mb-6 shadow-lg shadow-pink-200 dark:shadow-none">
+              <span class="material-icons text-3xl">water_drop</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Real Fruit Juice</h3>
+            <p class="text-gray-600 dark:text-gray-400">Crafted with authentic lychee juice for that unmistakable sweet and floral aroma.</p>
+          </div>
+          <div class="text-center p-6 rounded-2xl bg-pink-50 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-pink-100 dark:border-gray-700">
+            <div class="w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center text-white mb-6 shadow-lg shadow-pink-200 dark:shadow-none">
+              <span class="material-icons text-3xl">apps</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Nata de Coco</h3>
+            <p class="text-gray-600 dark:text-gray-400">Chewy coconut jelly cubes that add a fun, satisfying bite to every mouthful.</p>
+          </div>
+          <div class="text-center p-6 rounded-2xl bg-pink-50 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-pink-100 dark:border-gray-700">
+            <div class="w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center text-white mb-6 shadow-lg shadow-pink-200 dark:shadow-none">
+              <span class="material-icons text-3xl">sentiment_very_satisfied</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Gotta Chew!</h3>
+            <p class="text-gray-600 dark:text-gray-400">The perfect snack-drink hybrid that refreshes and satisfies your cravings.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-pink-50 dark:bg-gray-800/50 transition-colors duration-300 overflow-hidden" id="pairing">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+          <div class="relative">
+            <div class="absolute inset-0 bg-primary/10 rounded-[2rem] transform rotate-3 scale-105"></div>
+            <img alt="Fresh Lychee Fruit" class="relative rounded-[2rem] shadow-2xl object-cover w-full h-[500px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8a5t37wVDi2vgix2FmxIk-oIb2Cle4oy2u1Ji3SipmE64KxaZlrMIE_QvZZ7FhzN-fwfaL0iMkQjqKQgQAU16u2AZGlqAu8UxLPW78CHtQozpuUO-XtZkQqKOnpz3b19v7LeLcJs-F6LVKR0KCb0E61fjtB-z2rXoFZVmADAuNi_Aj7_WImAnIdRkC03-WyhTOTZq-FcNn-wrSoiMatYjq6VXg2helLPljM9-i7Zvbikt8TkpkNNM">
+          </div>
+          <div class="mt-12 lg:mt-0">
+            <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl mb-6">
+              A Match Made in Heaven
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+              The delicate, floral notes of rose perfectly complement the sweet, exotic taste of fresh lychee. It's a sophisticated flavor profile that appeals to those looking for something beyond ordinary fruit drinks.
+            </p>
+            <ul class="space-y-6">
+              <li class="flex items-start">
+                <div class="flex-shrink-0">
+                  <div class="flex items-center justify-center h-12 w-12 rounded-xl bg-white dark:bg-gray-700 text-primary shadow-sm border border-pink-100 dark:border-gray-600">
+                    <span class="material-icons">local_florist</span>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg leading-6 font-bold text-gray-900 dark:text-white">Fragrant Aroma</h4>
+                  <p class="mt-2 text-base text-gray-500 dark:text-gray-400">
+                    An inviting scent that prepares your palate for a refreshing experience.
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0">
+                  <div class="flex items-center justify-center h-12 w-12 rounded-xl bg-white dark:bg-gray-700 text-primary shadow-sm border border-pink-100 dark:border-gray-600">
+                    <span class="material-icons">eco</span>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg leading-6 font-bold text-gray-900 dark:text-white">Natural Sweetness</h4>
+                  <p class="mt-2 text-base text-gray-500 dark:text-gray-400">
+                    Perfectly balanced sweetness that isn't overpowering, letting the true fruit flavors shine.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-gray-900 transition-colors duration-300" id="stores">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
+            Where to Find Us
+          </h2>
+          <p class="mt-4 text-xl text-gray-500 dark:text-gray-400">
+            Locate a store near you and grab your chewable refreshment.
+          </p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg h-[400px] relative border border-gray-200 dark:border-gray-700">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDTpM4wA7QFT4NzbkmG81F7JuCKz45-mLl2UJboMkP-lXDDH0-l_n49IUUchi3gBgW7szzkaic2LLalOe9JHfy8m28tm0a98t2kGiViEH2nNXeNMxun5zZmyto3-6HmvbYz4LOZxItNAzehiB-BS9VbOmpOynNHdEQBYDjdomqJqNavO29po-57rlmshhMWgFxtVkHIIkilDvgKEbFpBCdSNAzMn2Rz0esf-aWeiSUOHL9Uu3sFFiPa&quot;); opacity: 0.5;"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-6">
+            <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-xl max-w-md w-full text-center border border-gray-100 dark:border-gray-700">
+              <span class="material-icons text-primary text-4xl mb-4">location_on</span>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Find Your Nearest Store</h3>
+              <div class="flex gap-2">
+                <input class="flex-1 rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-primary focus:border-primary" placeholder="Enter Zip Code or City" type="text">
+                <button class="bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-pink-500 transition-colors">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+        <div class="space-y-8 xl:col-span-1">
+          <span class="font-bold text-3xl text-primary tracking-tight font-mogu uppercase">Mogu Mogu</span>
+          <p class="text-gray-500 dark:text-gray-400 text-base max-w-xs font-display">
+            Bringing fun, flavor, and chewable joy to every bottle since 2001.
+          </p>
+          <div class="flex space-x-6">
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#">
+              <span class="sr-only">Facebook</span>
+              <span class="material-icons">facebook</span>
+            </a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#">
+              <span class="sr-only">Instagram</span>
+              <span class="material-icons">photo_camera</span>
+            </a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#">
+              <span class="sr-only">Twitter</span>
+              <span class="material-icons">flutter_dash</span>
+            </a>
+          </div>
+        </div>
+        <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+          <div class="md:grid md:grid-cols-2 md:gap-8">
+            <div>
+              <h3 class="text-sm font-semibold text-gray-400 dark:text-gray-300 tracking-wider uppercase">Products</h3>
+              <ul class="mt-4 space-y-4">
+                <li><a class="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Lychee</a></li>
+                <li><a class="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Mango</a></li>
+                <li><a class="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Strawberry</a></li>
+                <li><a class="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Grape</a></li>
+              </ul>
+            </div>
+            <div class="mt-12 md:mt-0">
+              <h3 class="text-sm font-semibold text-gray-400 dark:text-gray-300 tracking-wider uppercase">Support</h3>
+              <ul class="mt-4 space-y-4">
+                <li><a class="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Contact Us</a></li>
+                <li><a class="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">FAQ</a></li>
+                <li><a class="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Shipping</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="md:grid md:grid-cols-2 md:gap-8">
+            <div>
+              <h3 class="text-sm font-semibold text-gray-400 dark:text-gray-300 tracking-wider uppercase">Company</h3>
+              <ul class="mt-4 space-y-4">
+                <li><a class="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">About</a></li>
+                <li><a class="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Careers</a></li>
+                <li><a class="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 border-t border-gray-200 dark:border-gray-800 pt-8">
+        <p class="text-base text-gray-400 xl:text-center">
+          &copy; 2026 Mogu Mogu. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CDN scripts: GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

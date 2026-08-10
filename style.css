@@ -1,0 +1,46 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fdf2f8;
+}
+::-webkit-scrollbar-thumb {
+  background: #f472b6;
+  border-radius: 5px;
+  border: 2px solid #fdf2f8;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #db2777;
+}
+
+/* Canvas Pinned Section */
+.animation-section {
+  position: relative;
+  width: 100%;
+  height: 500vh; /* Scroll depth for scrubbing */
+  background-color: #000; /* Dark background container for canvas frames */
+}
+
+.canvas-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
